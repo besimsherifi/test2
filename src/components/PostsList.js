@@ -1,5 +1,5 @@
 import React from "react";
-
+import PostCard from "./PostCard";
 import { gql, useQuery } from "@apollo/client";
 
 const GET_ALL_POSTS = gql`
@@ -41,7 +41,7 @@ export default function PostsList() {
   return (
     <div className="posts-list">
       {data.posts.nodes.map((post) => (
-        <h1>{post.title}</h1>
+        <PostCard key={post.databaseId} post={post} />
       ))}
     </div>
   );
